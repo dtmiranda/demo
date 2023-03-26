@@ -16,16 +16,14 @@ public class StudentConfig {
             Student Samuel = new Student(
                 "Samuel",
                 "samuel@email.com",
-                LocalDate.of(2000, Month.JANUARY, 5),
-                23
+                LocalDate.of(2000, Month.JANUARY, 5)
 
             );
 
             Student Carlos = new Student(
                     "Carlos",
                     "Carlos@email.com",
-                    LocalDate.of(2008, Month.DECEMBER, 5),
-                    15
+                    LocalDate.of(2008, Month.DECEMBER, 5)
 
             );
 

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -24,7 +25,16 @@ public class StudentService {
 
 
     public void addNewStudent(Student student) {
+        Optional<Student> studentOptional =  studentRepository.findStudentByEmail(student.getEmail());
+
+        //if the student email exists
+        if (studentOptional.isPresent()){
+            throw  new IllegalStateException("Email taken!..");
+        }
+
         System.out.println(student);
+        studentRepository.save(student);
+
 
     }
 }

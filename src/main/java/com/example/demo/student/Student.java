@@ -22,7 +22,7 @@ public class Student {
     private Long id;
     private String name;
     private String email;
-    private LocalDate dateOfBirth;
+    private LocalDate dob;
     @Transient //This field no need to be a column in our database
     private Integer age;
 
@@ -33,14 +33,14 @@ public class Student {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.dateOfBirth = dateOfBirth;
+        this.dob = dateOfBirth;
 
     }
 
     public Student(String name, String email, LocalDate dateOfBirth) {
         this.name = name;
         this.email = email;
-        this.dateOfBirth = dateOfBirth;
+        this.dob = dateOfBirth;
 
     }
 
@@ -68,16 +68,16 @@ public class Student {
         this.email = email;
     }
 
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
+    public LocalDate getDob() {
+        return dob;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setDob(LocalDate dateOfBirth) {
+        this.dob = dateOfBirth;
     }
 
     public Integer getAge() {
-        return Period.between(this.dateOfBirth, LocalDate.now()).getYears();
+        return Period.between(this.dob, LocalDate.now()).getYears();
 
     }
 
@@ -91,7 +91,7 @@ public class Student {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
+                ", dateOfBirth=" + dob +
                 ", age=" + age +
                 '}';
     }

@@ -1,12 +1,8 @@
-package com.example.demo.student;
+package com.study.springboot.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,6 +31,18 @@ public class StudentService {
         System.out.println(student);
         studentRepository.save(student);
 
+
+    }
+
+    public void deleteStudent(Long studentId) {
+        boolean studentExists = studentRepository.existsById(studentId);
+
+        if(!studentExists){
+            throw new IllegalStateException("Student with id " + studentId+ "does not exists");
+
+        }
+
+        studentRepository.deleteById(studentId);
 
     }
 }
